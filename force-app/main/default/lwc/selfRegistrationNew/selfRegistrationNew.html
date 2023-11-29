@@ -1,0 +1,319 @@
+<template >
+	
+    	<template if:true={openFirstPage}>
+			<div class="slds-align_absolute-center">
+				<div>
+					<div class="custom-heading slds-text-heading_large slds-align_absolute-center">
+						<p><b> Join the Journey</b></p>
+					</div>
+
+					<div class="custom-content slds-text-heading_small slds-align_absolute-center">
+						<p> We invite you to join the journey.Upon<br>
+							signup, you will have immediate access to<br>
+							our introductory offering.Participation<br>
+							in this offering gurantees access to<br>
+							the future allocation.
+						</p>
+					</div>
+               
+					<div class="input-container">
+						<!-- FirstName -->
+						<input type="text" id="firstNameField" aria-labelledby="label-firstNameField" onchange={onFirstName} required/>
+						<label for="firstNameField" class="label" id="label-firstNameField">
+						<div class="text">First Name</div></label>
+					</div>
+
+					<div class="input-container" style="margin-top: 15px;">
+						<!-- LastName -->
+						<input type="text" id="lastNameField" aria-labelledby="label-lastNameField" onchange={onLastName}/>
+						<label for="lastNameField" class="label" id="label-lastNameField">
+						<div class="text">Last Name</div></label>
+					</div>
+
+					<div class="input-container" style="margin-top: 15px;">
+						<!-- Email -->
+							<input type="email" id="emailTextField" aria-labelledby="label-emailTextField" data-id="txtEmailAddress" onchange={onEmailChange} />
+							<label for="emailTextField" class="label" id="label-emailTextField">
+							<div class="text">Email</div></label>
+					</div>
+
+					<div class="input-container" style="margin-top: 15px;">
+						<!-- ConfirmEmail -->
+							<input type="email" id="confEmailField" aria-labelledby="label-confEmailField" onchange={onConfirmEmailChange}/>
+							<label for="confEmailField" class="label" id="label-confEmailField">
+							<div class="text">Confirm Email</div></label>
+					</div>
+                    <p class="error-message" if:true={showErrorMessageEmail}>{errorMessageForEmail}</p> 
+
+					<div class="input-container" style="margin-top: 15px;">
+							<!-- Password -->
+							<input type="password" id="passwordField" aria-labelledby="label-passwordField" maxlength="12" minlength="8" onchange={onPasswordChange}/>
+							<label for="passwordField" class="label" id="label-passwordField">
+							<div class="text"> Password</div></label>
+					</div>
+					<p>Create a unique password with a minimum of 8 characters.</p>
+
+					<div class="input-container" style="margin-top: 15px;">
+							<!-- ConfirmPassword -->
+							<input type="password" id="confPassField" aria-labelledby="label-confPassField" maxlength="12" minlength="8" onchange={onConfirmPassword}/>	
+							<label for="confPassField"  class="label" id="label-confPassField">
+							<div class="text">Confirm Password</div></label>
+					</div>
+                    <p class="error-message" if:true={showPasswordErrorMessage}>{errorMessageForPassword}</p> 
+                 <p class="error-message" if:true={showErrorMessage}>{requiredMsg}</p> 
+
+					<div class="input-container " style="margin-top: 15px;">
+						<div>
+							<p>Step 1 of 2</p>
+						</div>
+						<div style="margin-top: 15px; float: right;">
+							<lightning-button variant="brand" label="Continue" title="continue"
+								onclick={onContinueClick} ></lightning-button>
+						</div>
+					</div>
+
+				</div>
+			</div>
+    	</template>
+    	<template if:true={openNewTemplate}>
+
+        	<lightning-button-icon variant="bare" icon-name="utility:back" alternative-text="back" title="back" style="margin-right: 5px" onclick={backFirstPage}></lightning-button-icon>&nbsp;
+			<div class="slds-align_absolute-center">
+				<div>
+					<div class="custom-heading slds-text-heading_large slds-align_absolute-center">
+						<p><b> Join the Journey</b></p>
+					</div>
+					<div class="custom-content slds-text-heading_small slds-align_absolute-center">
+						<p> We invite you to join the journey.Upon<br>
+							signup, you will have immediate access to<br>
+							introductory offering.Participation<br>
+							in this offering gurantees access to<br>
+							the future allocation.
+						</p>
+					</div>
+					<div class="input-container " style="margin-top: 15px;">
+						<!-- FirstName -->
+						<input type="date" id="dateOfBirthField" aria-labelledby="label-dateOfBirthField" onchange={onDOB}/>
+						<label for="dateOfBirthField" class="label" id="label-dateOfBirthField">
+							<div class="text">Date Of Birth</div></label>
+            		</div>
+					<p>Please enter date of birth in DD/MM/YYYY format.</p>
+                    <p class="error-message" if:true={showErrorMessageAge}>{errorMessageForDateOfBirth}</p> 
+
+					
+                  
+
+                        <div class="input-container " style="margin-top: 5px;">
+                        <input type="text" id="phoneMobileField" aria-labelledby="label-phoneMobileField" data-id="country" name="country" onchange={onphoneMobile}></input>
+                        <label class="labelPhone" for="phoneMobileField" id="label-phoneMobileField">
+                        <div class="text">Phone(Mobile)</div>
+                        </label>
+                        </div>
+						
+						<div class="input-container " style="margin-top: 15px;">
+						<ul style="">
+							<li><input  style="height: 14px; margin-top: 4px; width: 16px;" type="checkbox" id="optField" checked={isChecked} onchange={onOptValue} required/></li>
+							<li style="margin-left: 6px;"><p>opt for text notification.</p></li>
+						</ul>
+						
+	            	</div>
+
+					<div class="input-container " style="margin-top: 15px;">
+					
+						<input type="text" id="zipcodeField" aria-labelledby="label-zipcodeField" onchange={onZipCode} required/>
+						<label for="zipcodeField" class="label" id="label-zipcodeField">
+						<div class="text">Zip/Postal Code</div></label>
+						</div>
+
+					<div class="input-container " style="margin-top: 15px;">
+						
+						<input type="text" id="countryField" aria-labelledby="label-countryField" onchange={onCountry} required/>
+						<label for="countryField" class="label" id="label-countryField">
+						<div class="text">Country</div></label>
+					</div>
+					
+					<div class="input-container " style="margin-top: 15px;">
+						<span>Whom may we thank for the information?</span>
+	            	</div>
+
+					<!-- Friend -->
+					<div class="input-container " style="margin-top: 15px;">
+						<ul style="">
+							
+						<li><input style="height: 14px; margin-top: 4px; width: 16px;" type="radio" id="friendField" aria-labelledby="label-friendField" onchange={onFriendFamily} required/></li>
+						<!-- <label for="friendField" class="label" id="label-friendField"> -->
+						<li style="margin-left: 6px;"><p>Friend/Family/Colleague</p></li>
+						</ul>
+					</div>
+					<div if:true={FriendFamily}>
+						<div class="input-container " style="margin-top: 15px;">
+							<input type="text" id="friendNameField" aria-labelledby="label-friendNameField" onchange={onNameFriend}/>
+							<label for="friendNameField" class="label" id="label-friendNameField">
+							<div class="text">FirstName LastName</div></label>
+						</div>
+					</div>
+            
+					<!-- shop -->
+					<div class="input-container " style="margin-top: 15px;">
+						<ul style="">
+						<li><input style="height: 14px; margin-top: 4px; width: 16px;" type="radio" id="ShopField" aria-labelledby="label-ShopField"  onchange={onShop} required/></li>
+					
+						<li style="margin-left: 6px;"><p>Shop/Restaurant</p></li>
+						</ul>
+					</div>
+					<div if:true={shopRestaurant}>
+						<div class="input-container " style="margin-top: 15px;">
+							<input type="text" id="ShopResField" aria-labelledby="label-ShopResField"  onchange={onNameShop}/>
+							<label for="ShopResField" class="label" id="label-ShopResField">
+							<div class="text">Name of the Shop/Restaurant</div></label>
+						</div>
+					</div>
+
+					<!-- Event/Tasting -->
+					<div class="input-container " style="margin-top: 15px;">
+						<ul style="">
+						<li><input style="height: 14px; margin-top: 4px; width: 16px;" type="radio" id="eventField" aria-labelledby="label-eventField" onchange={onEventTasting} required/></li>
+						<!-- <label for="eventField" class="label" id="label-eventField"> -->
+						<li style="margin-left: 6px;"><p>Event/Tasting</p></li>
+						</ul>
+	            	</div>
+					<div if:true={eventTasting}>
+						<div class="input-container " style="margin-top: 15px;">
+							<input type="text" id="eventTastingField" aria-labelledby="label-eventTastingField" onchange={onNameofEvent}/>
+							<label for="eventTastingField" class="label" id="label-eventTastingField">
+								<div class="text">Name of the Event/Tasting</div></label>
+						</div>
+					</div>
+
+            		<!-- Press Website -->
+					<div class="input-container " style="margin-top: 15px;">
+						<ul style="">
+						<li><input style="height: 14px; margin-top: 4px; width: 16px;" type="radio" id="websiteField" aria-labelledby="label-websiteField" onchange={onWebsite} required/></li>
+						<!-- <label for="websiteField" class="label" id="label-websiteField"> -->
+						<li style="margin-left: 6px;"><p>Press/Website</p></li>
+						</ul>
+					</div>
+					<div if:true={pressWebsite}>
+						<div class="input-container " style="margin-top: 15px;">
+							<input type="text" id="websiteNameField" aria-labelledby="label-websiteNameField" onchange={onNameWebsite}/>
+							<label for="websiteNameField" class="label" id="label-websiteNameField">
+							<div class="text">Name of the Press/Website</div></label>
+						</div>
+					</div>
+
+
+					<!-- Honey Winery -->
+					<div class="input-container " style="margin-top: 15px;">
+						<ul style="">
+						<li><input style="height: 14px; margin-top: 4px; width: 16px;" type="radio" id="HotelField" aria-labelledby="label-HotelField" onchange={onHotel} required/></li>
+						<!-- <label for="HotelField" class="label" id="label-HotelField"> -->
+						<li style="margin-left: 6px;"><p>Hotel/Winery</p></li>
+						</ul>
+					</div>
+					<div if:true={hotelWinery}>
+						<div class="input-container " style="margin-top: 15px;">
+							<input type="text" id="hotelNameField" aria-labelledby="label-hotelNameField" onchange={onNameHotel}/>
+							<label for="hotelNameField" class="label" id="label-hotelNameField">
+							<div class="text">Name of the Hotel/Winery</div></label>
+						</div>
+					</div>
+
+					<!-- SocialMedia -->
+					<div class="input-container " style="margin-top: 15px;">
+						<ul style="">
+						<li><input style="height: 14px; margin-top: 4px; width: 16px;" type="radio" id="socialField" aria-labelledby="label-socialField" onchange={onSocialMedia} required/></li>
+						<!-- <label for="socialField" class="label" id="label-socialField"> -->
+						<li style="margin-left: 6px;"><p>SocialMedia</p></li>
+						</ul>
+					</div>
+					<div if:true={socialMedia}>
+						<div class="input-container " style="margin-top: 15px;">
+							<input type="text" id="socialMediaField" aria-labelledby="label-socialMediaField" onchange={onNameSocialMedia}/>
+							<label for="socialMediaField" class="label" id="label-socialMediaField">
+							<div class="text">Name of the App</div></label>
+						</div>
+					</div>
+
+					<!-- others -->
+					<div class="input-container " style="margin-top: 15px;">
+						<ul style="">
+						<li><input style="height: 14px; margin-top: 4px; width: 16px;" type="radio" id="otherField" aria-labelledby="label-otherField" onchange={onOther} required/></li>
+				
+						<li style="margin-left: 6px;"><p>Other</p></li>
+						</ul>
+					</div>
+					<div if:true={otherName}>
+						<div class="input-container " style="margin-top: 15px;">
+							<input type="text" id="enterNameField" aria-labelledby="label-enterNameField" onchange={onEnterName}/>
+							<label for="enterNameField" class="label" id="label-enterNameField">
+							<div class="text">Enter Name</div></label>
+						</div>
+					</div>
+
+					<div class="input-container " style="margin-top: 15px;">
+						<lightning-button variant="brand" label="SignIn" title="SignIn"
+							onclick={onSignIn}>
+						</lightning-button>
+					</div>
+
+					<template if:true = {spinner}>
+                		<div class="exampleHolder">
+                    		<lightning-spinner role="status" alternative-text="Loading" size="medium" variant="brand"></lightning-spinner>
+                		</div>
+            		</template>
+				</div>
+			</div>
+		</template>
+		<div style="margin-top: 8rem; ">
+            <div class="slds-grid slds-gutters">
+                <div class="slds-col">
+                    <p>
+                        Where the practical meets the dreamer,<br>
+                        And perseverance converges with sheer luck,<br>
+                        Where intellect meets instinct,<br>
+                        And science dances with art,<br>
+                        Where the paradox is embraced...<br>
+                        That’s where Realm lives.
+                    </p>
+                    <div style="margin-top: 18px;">
+                        <a href="/s/sign-up"><b>Become a Member</b></a>
+                    </div>
+                </div>
+                <div class="slds-col">
+                    <h6><b>General</b></h6>
+                        <a href="https://www.realmcellars.com/find-our-wines">Find Our Wine</a><br>
+                        <a href="https://www.realmcellars.com/authenticate" >Authenticate</a>
+                    <div style="margin-top: 15px;">
+                        <h6><b>Find Us</b></h6>
+                        <a href="https://www.google.com/maps/place/5795+Silverado+Trail,+Napa,+CA+94558/@38.3999665,-122.3469249,14.87z/808500213d264781:0x25b805a33cb3a334!8m2!3d38.401412!4d-122.327994">
+                            Realm Cellars<br>
+                            5795 Silverado Trail<br>
+                            Napa, California 94558
+                        </a>
+                    </div>
+                </div>
+                <div class="slds-col">
+                        <h6><b>Contact</b></h6>
+                        <a href="mailto:team@realmcellars.com">team@realmcellars.com</a><br>
+                        <a href="tel:707-224-1910">+1 707-224-1910</a>
+                        <div style="margin-top: 15px;">
+                        <h6><b>Social</b></h6>
+                        <a href="https://www.instagram.com/realmcellarsnapa/">Instagram</a><br>
+                        <a href="https://vimeo.com/realmcellars">Vimeo</a>
+                    </div>
+                    </div>
+            </div>
+            <div style=" border-bottom: 1px solid black; margin-top: 2rem;"></div>
+            <div style="margin-top: 15px;">
+                <ul>
+                    <li><p>© 2023 Realm Cellars</p></li>
+                    <li style="margin-left: 10px;" class ="inline-hover"><a href="https://www.realmcellars.com/privacy">Privacy</a></li>
+                    <li class="listAlign inline-hover"><a href="https://www.realmcellars.com/shipping">Shipping</a></li>
+                    <li class="listAlign inline-hover"><a href="https://www.realmcellars.com/terms">Terms</a></li>
+                    <li class="listAlign inline-hover"><a href="https://www.realmcellars.com/accessibility">Accessibility</a></li>
+                    <li class ="inline-hover" style="float: right;"><a href="https://www.wearefine.com">a FINE site</a></li>
+                </ul>
+            </div>
+        </div>
+	
+</template>

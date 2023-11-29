@@ -1,0 +1,14 @@
+<template>
+  
+       
+<div if:true={isLoading} >
+        <!-- Add your spinner or loading animation here -->
+        Loading...
+        <div class="example">
+     <lightning-spinner role="status" alternative-text="Loading" size="large" variant="brand"></lightning-spinner>
+        </div>
+    </div>
+
+    <lightning-button label="Start File Upload" onclick={handleFileUpload}></lightning-button>
+   
+</template>

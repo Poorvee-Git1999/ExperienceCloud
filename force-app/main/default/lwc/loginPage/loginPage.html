@@ -1,0 +1,59 @@
+<template >
+   
+    	
+			<div class="slds-align_absolute-center">
+				<div>
+					<div class="custom-heading slds-text-heading_large slds-align_absolute-center">
+						<p><b> Log In</b></p>
+					</div>
+                    <div class="custom-content slds-text-heading_small slds-align_absolute-center">
+						<p> We are excited to share our member portal with you. We welcome your 
+                            feedback as we aim to tailor this digital experience for each member over
+                            time. New features will be added in upcoming months and we encourage 
+                            you to stay tuned!
+						</p>
+					</div>
+                    <div class="input-container" style="margin-top: 15px;">
+						<!-- Email -->
+							<input type="email" id="emailTextField" aria-labelledby="label-emailTextField" data-id="txtEmailAddress" onchange={onEmailChange} />
+							<label for="emailTextField" class="label" id="label-emailTextField">
+							<div class="text">Email Address</div></label>
+					</div>
+                    <div class="input-container" style="margin-top: 15px;">
+							<!-- Password -->
+							<input type="password" id="passwordField" aria-labelledby="label-passwordField" maxlength="12" minlength="8" onchange={onPasswordChange}/>
+							<label for="passwordField" class="label" id="label-passwordField">
+							<div class="text"> Password</div></label>
+					</div>
+                    						<div style="margin-top: 15px; float: right;">
+							<lightning-button variant="brand" label="Login" title="Login"
+								onclick={onLogin} ></lightning-button>
+						</div>
+				</div>
+                </div>
+				<div class="input-container" style="margin-top: 90px; font-size: 15px">
+
+                    <ul>
+
+                        <li>Not a member?</li>
+
+                        <li class="listAlign inline-hover"><a href="/ExperienceCloud/s/login/SelfRegister">Sign Up</a></li>
+
+                    </ul>
+
+                    </div>
+
+                    <div class="input-container" style="margin-top: 20px; font-size: 15px">
+
+                        <ul>
+
+                            <li>Forgot your password?</li>
+
+                            <li class="listAlign inline-hover"><a href="/landingpage">Reset Password</a></li>
+
+                        </ul>
+
+                    </div>
+			
+                    
+                    	</template>

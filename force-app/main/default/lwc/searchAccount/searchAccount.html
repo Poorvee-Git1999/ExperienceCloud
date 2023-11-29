@@ -1,0 +1,11 @@
+<template>
+<lightning-card  variant="Narrow"  title="Search Account" icon-name="standard:account">
+   <lightning-input type="text" variant="standard" name="name" label="Search Account" onchange={handleChange}></lightning-input>
+<lightning-datatable
+   key-field="id"
+    data={dataList}
+    columns={columnsList}
+    onrowaction={handleRowAction}>
+</lightning-datatable>
+</lightning-card>
+</template>

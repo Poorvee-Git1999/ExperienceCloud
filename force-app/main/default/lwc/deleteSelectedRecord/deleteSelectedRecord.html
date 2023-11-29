@@ -1,0 +1,12 @@
+<template>
+<lightning-card  variant="Narrow"  title="Datatable of related Contact to Account" icon-name="standard:account">
+    <div style="height: 300px;">
+        <lightning-datatable
+                key-field="id"
+                data={contacts}
+                columns={columns}
+                onrowaction={handleRowAction}>
+        </lightning-datatable>
+    </div>
+</lightning-card>
+</template>

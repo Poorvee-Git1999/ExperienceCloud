@@ -1,0 +1,12 @@
+<template>
+<lightning-card  variant="Narrow"  title="Find a player" icon-name="standard:account">
+    <lightning-button variant="base" label="Cricketer"  onclick={handleClick} slot="actions"></lightning-button>
+       <lightning-combobox
+            
+            value={selectedvaluefromCombobox}
+            
+            options={optionArray}
+            onchange={handleChange} ></lightning-combobox>
+
+</lightning-card>
+</template>

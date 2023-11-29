@@ -1,0 +1,8 @@
+<template>
+<lightning-card  variant="Narrow"  title="Create Account With Apex" icon-name="standard:account">
+   <lightning-input type="text" variant="standard" name="name" label="Name" onchange={handleChange} placeholder="type here..."></lightning-input>
+   <lightning-input variant="standard" name="Industry" label="Industry" onchange={handleChangeEvent} placeholder="type here..."></lightning-input>
+   <lightning-input  name="id" disabled value={accountId} label="id" placeholder="type here..."></lightning-input>
+<lightning-button variant="base" label="Create Account" title="Create Account" onclick={onCreateRecord}></lightning-button>
+</lightning-card>
+</template>

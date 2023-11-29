@@ -1,0 +1,159 @@
+.custom-heading {
+
+	font-size: 35px; 
+	font-weight: 400;
+	font-family: 'GaramondURW-Reg' !important;
+	margin-top: 35px;
+	margin-bottom: 30px;
+}
+.custom-content {
+
+	font-size: 17px;
+	font-family: 'GaramondURW-Reg';
+	margin-top: 10px;
+	margin-bottom: 30px;
+	line-height: 1.2;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+
+/* .sidecustom-content {
+
+	font-size: 17px; 
+	font-family: 'GaramondURW-Reg';
+	margin-top: 10px;
+	margin-bottom: 25px;
+	line-height: 1.2;
+	margin-left: 10px;
+}
+.step-container {
+	position: relative;
+	margin-bottom: 80px;
+} */
+.inline-hover::after {
+	content:'';
+	display: block;
+	height: 1px;
+	width: 100%;
+	background-color: #A40C8B;
+	transform: scaleX(0);
+	transform-origin: left;
+	transition: transform 0.3s ease-in-out;
+}
+.inline-hover:hover::after {
+	transform: scaleX(1);
+}
+/* .spacingline-password{
+	margin-left: -40px;
+	margin-top: 2px;
+}  */
+
+.body{
+  background-color: #F5F5F5;
+}
+.input-container {
+  position: relative;
+}
+input {
+  height: 48px;
+  width: 40rem;
+  border: 1px solid #c0c0c0;
+  border-radius: 4px;
+  box-sizing: border-box;
+  padding: 16px;
+}
+.label {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 16px;
+  display: flex;
+  align-items: center;
+  pointer-events: none;
+}
+input, .label .text {
+  font-family: 'Segoe UI';
+  font-size: 16px;
+}
+input:focus {
+  outline: none;
+  border: 2px solid #A40C8B;
+}
+input, .label .text {
+  font-family: 'Segoe UI';
+  font-size: 16px;
+  background-color: #F5F5F5;
+}
+input:focus + .label .text {
+  font-size: 12px;
+  transform: translate(0, -50%);
+  background-color: white;
+  padding-left: 4px;
+  padding-right: 4px;
+  color: #A40C8B;
+}
+.label .text {
+  transition: all 0.15s ease-out;
+}
+input:focus + .label .text, :not(input[value=""]) + .label .text {
+  font-size: 12px;
+  transform: translate(0, -150%);
+  background-color: #F5F5F5;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+input:focus + .label .text {
+  color: #A40C8B;
+}
+
+lightning-button.button {
+	--sds-c-button-brand-color-background: #A40C8B;
+    --sds-c-button-text-color: #f4f7f9;
+    --slds-c-button-brand-color-border-hover: #A40C8B;
+    --slds-c-button-brand-color-background-hover: #A40C8B;
+    --slds-c-button-brand-color-border: #A40C8B;
+}
+
+a{
+  color: black;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+li {
+  float: left;
+}
+
+.listAlign{
+  margin-left: 5px;
+}
+
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
+}

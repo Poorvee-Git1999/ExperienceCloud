@@ -1,0 +1,104 @@
+<template>
+     <template if:true={templateOne}>
+    <div class="custom-heading slds-text-heading_large slds-align_absolute-center">
+     </div> 
+	<div class="slds-grid slds-grid_align-space">
+<div class="slds-col">
+
+<span><strong> First Name </strong> <br/> {userNameField}</span>
+</div>
+<div class="slds-col">
+<span><strong> Last Name </strong> <br/> {userLastNameField}</span>
+
+</div>
+<div class="slds-col">
+<span><strong> Date of Birth </strong> <br/> {userDOB}</span>
+
+</div>
+</div>
+    
+   	<div class="slds-grid slds-grid_align-space">
+<div class="slds-col">
+
+<span><strong> Mobile Number</strong> <br/> {userMobile}</span>
+</div>
+<div class="slds-col">
+<span><strong> Alternate Number</strong> <br/> {userLastNameField}</span>
+
+</div>
+<div class="slds-col">
+<span><strong> Email Address </strong> <br/> {userEmail}</span>
+
+</div>
+</div>
+		<div class="input-container " style="margin-top: 15px;">
+						<lightning-button variant="brand" label="Edit" title="Edit"
+							onclick={onEdit}>
+						</lightning-button>
+					</div>
+     </template>
+      <template if:true={templatetwo}>
+      <div class="custom-heading slds-text-heading_large slds-align_absolute-center">
+    <p><b>Contact</b></p>
+    </div>
+                    <div class="input-container">
+						<!-- FirstName -->
+						<input type="text" id="firstNameField" aria-labelledby="label-firstNameField" value={userNameField} onchange={onFirstName} required/>
+						<label for="firstNameField" class="label" id="label-firstNameField">
+						<div class="text">First Name</div></label>
+					</div>
+
+					<div class="input-container" style="margin-top: 15px;">
+						<!-- LastName -->
+						<input type="text" id="lastNameField" aria-labelledby="label-lastNameField"  value={userLastNameField} onchange={onLastName}/>
+						<label for="lastNameField" class="label" id="label-lastNameField">
+						<div class="text">Last Name</div></label>
+					</div>
+                     <div class="input-container " style="margin-top: 15px;">
+						<!-- FirstName -->
+           
+						<input type="date" id="dateOfBirthField" aria-labelledby="label-dateOfBirthField" value={userDOB} onchange={onDOB}/>
+						<label for="dateOfBirthField" class="label" id="label-dateOfBirthField">
+							<div class="text">Date Of Birth</div></label>
+            		</div>
+					<p>Please enter date of birth in DD/MM/YYYY format.</p>
+
+                    <div class="input-container" style="margin-top: 15px;">
+						<!-- Email -->
+							<input type="email" id="emailTextField" aria-labelledby="label-emailTextField" data-id="txtEmailAddress"  value={userEmail} disabled onchange={onEmailChange} />
+							<label for="emailTextField" class="label" id="label-emailTextField">
+							<div class="text">Email</div></label>
+					</div>
+                      <p> Please contact us to update your e-mail address.</p>
+
+                    <div class="input-container" style="margin-top: 15px;">
+						<!-- Email -->
+							<input type="email" id="emailalterTextField" aria-labelledby="label-emailalterTextField" data-id="txtEmailAddress" onchange={onAlternateEmailChange} />
+							<label for="emailalterTextField" class="label" id="label-emailalterTextField">
+							<div class="text">Alternate Email</div></label>
+					</div>
+                     <div class="input-container " style="margin-top: 5px;">
+                        <input type="text" id="phoneMobileField" aria-labelledby="label-phoneMobileField" data-id="country" name="country" value ={userMobile} onchange={onphoneMobile}></input>
+                        <label class="labelPhone" for="phoneMobileField" id="label-phoneMobileField"></label>
+                        <div class="text">Mobile Number</div>
+               </div>
+                        <div class="input-container " style="margin-top: 15px;">
+						<ul style="">
+							<li><input  style="height: 14px; margin-top: 4px; width: 16px;" type="checkbox" id="optField" checked={isChecked} onchange={onOptValue} required/></li>
+							<li style="margin-left: 6px;"><p> Opt-in to receive SMS text messages. You may opt-out anytime by updating the status here or replying "stop". Please ensure your primary mobile phone number is able to receive text messages. International SMS is not available at this time.</p></li>
+						</ul>
+						
+	            	</div>
+							<div class="input-container " style="margin-top: 15px;">
+						<lightning-button variant="brand" label="Cancel" title="Cancel"
+							onclick={onCancel}>
+						</lightning-button>
+					</div>
+							<div class="input-container " style="margin-top: 15px;">
+						<lightning-button variant="brand" label="Save" title="Save"
+							onclick={onSave}>
+						</lightning-button>
+					</div>
+      </template>
+
+</template>

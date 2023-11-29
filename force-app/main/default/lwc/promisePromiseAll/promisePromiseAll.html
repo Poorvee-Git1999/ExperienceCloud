@@ -1,0 +1,24 @@
+<template>
+
+
+
+testing the Asynchronous js 
+   
+       
+
+<lightning-button variant="base" label="Click Me" onclick={handleFileUpload}></lightning-button>
+<!-- <div class="slds-backdrop slds-backdrop_open"></div> -->
+
+
+
+<template if:true = {isLoading}>
+
+        <div class="exampleHolder loader">
+
+           <lightning-spinner role="status" alternative-text="Loading" size="large" variant="inverse"></lightning-spinner>
+
+        </div>
+
+    </template>
+       
+</template>

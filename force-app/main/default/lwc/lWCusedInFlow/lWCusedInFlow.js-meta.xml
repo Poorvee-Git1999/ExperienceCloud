@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+	<apiVersion>57.0</apiVersion>
+	<isExposed>true</isExposed>
+<targets>
+        <target>lightning__FlowScreen</target>
+    </targets>
+ 
+   <targetConfigs>
+        <targetConfig targets="lightning__FlowScreen">
+            <property label="Mobile Phone" name="MobilePhone"  type="Integer" role="outputOnly"/>
+            <property label="Email Address" name="Email" type="string" role="outputOnly"/>
+        </targetConfig>
+    </targetConfigs>
+
+</LightningComponentBundle>

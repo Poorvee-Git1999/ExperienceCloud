@@ -1,0 +1,14 @@
+<template>
+  <lightning-card title="Display List of Contact">
+    <template if:true={contacts.data}>
+    <template for:each={contacts.data} for:item="con">
+    <p key={con.id}> {con.Name} {con.Email}</p>
+    </template>
+    <template if:false={contact.data}>
+      <p> Something went wrong!! </p>
+    </template>  
+
+
+    </template>
+  </lightning-card>  
+</template>

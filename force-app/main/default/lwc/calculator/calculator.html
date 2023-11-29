@@ -1,0 +1,13 @@
+<template>
+    <lightning-card  variant="Narrow"  title="Calculator" icon-name="standard:account">
+               <lightning-input type="Number" label="Enter the first number" name="value1" value={firstNumber} onchange={valueChange} ></lightning-input>
+        <lightning-input type="Number" label="Enter the Second Number" name="value2" value={secondNumber} onchange={valueChange} ></lightning-input>
+           <lightning-input  name="Result" disabled value={result} label="Result" ></lightning-input>
+
+        <lightning-button variant="brand" label="Addition" onclick={handlerClick}></lightning-button>
+        <lightning-button variant="brand" label="Substraction" onclick={handlerClick}></lightning-button>
+        <lightning-button variant="brand" label="Multiplication" onclick={handlerClick}></lightning-button>
+        <lightning-button variant="brand" label="Division" onclick={handlerClick}></lightning-button>
+        
+    </lightning-card>
+</template>

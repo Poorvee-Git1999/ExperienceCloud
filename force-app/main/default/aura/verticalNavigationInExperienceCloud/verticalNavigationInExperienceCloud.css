@@ -1,0 +1,17 @@
+/* Initial state - collapsed */
+
+.THIS .collapse {
+
+    display: none;
+
+}
+
+ 
+
+/* Expanded state */
+
+.THIS .expand {
+
+    display: block;
+
+}

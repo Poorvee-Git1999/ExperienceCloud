@@ -1,0 +1,56 @@
+<template>
+<!--<div class="slds-box body ">-->
+    <div class="custom-heading slds-text-heading_large slds-align_absolute-center">
+    <p><b>Contact</b></p>
+    </div>
+                    <div class="input-container">
+						<!-- FirstName -->
+						<input type="text" id="firstNameField" aria-labelledby="label-firstNameField" onchange={onFirstName} required/>
+						<label for="firstNameField" class="label" id="label-firstNameField">
+						<div class="text">First Name</div></label>
+					</div>
+
+					<div class="input-container" style="margin-top: 15px;">
+						<!-- LastName -->
+						<input type="text" id="lastNameField" aria-labelledby="label-lastNameField" onchange={onLastName}/>
+						<label for="lastNameField" class="label" id="label-lastNameField">
+						<div class="text">Last Name</div></label>
+					</div>
+                   <div class="input-container " style="margin-top: 15px;">
+						<!-- FirstName -->
+						<input type="date" id="dateOfBirthField" aria-labelledby="label-dateOfBirthField" onchange={onDOB}/>
+						<label for="dateOfBirthField" class="label" id="label-dateOfBirthField">
+							<div class="text">Date Of Birth</div></label>
+            		</div>
+					<p>Please enter date of birth in DD/MM/YYYY format.</p>
+
+                    <div class="input-container" style="margin-top: 15px;">
+						<!-- Email -->
+							<input type="email" id="emailTextField" aria-labelledby="label-emailTextField" data-id="txtEmailAddress" onchange={onEmailChange} />
+							<label for="emailTextField" class="label" id="label-emailTextField">
+							<div class="text">Email</div></label>
+					</div>
+                   <p> Please contact us to update your e-mail address.</p>
+
+                    <div class="input-container" style="margin-top: 15px;">
+						<!-- Email -->
+							<input type="email" id="emailalterTextField" aria-labelledby="label-emailalterTextField" data-id="txtEmailAddress" onchange={onAlternateEmailChange} />
+							<label for="emailalterTextField" class="label" id="label-emailalterTextField">
+							<div class="text">Alternate Email</div></label>
+					</div>
+                     <div class="input-container " style="margin-top: 5px;">
+                        <input type="text" id="phoneMobileField" aria-labelledby="label-phoneMobileField" data-id="country" name="country" onchange={onphoneMobile}></input>
+                        <label class="labelPhone" for="phoneMobileField" id="label-phoneMobileField"></label>
+                        <div class="text">Mobile Number</div>
+
+                        </div>
+                        <div class="input-container " style="margin-top: 15px;">
+						<ul style="">
+							<li><input  style="height: 14px; margin-top: 4px; width: 16px;" type="checkbox" id="optField" checked={isChecked} onchange={onOptValue} required/></li>
+							<li style="margin-left: 6px;"><p> Opt-in to receive SMS text messages. You may opt-out anytime by updating the status here or replying "stop". Please ensure your primary mobile phone number is able to receive text messages. International SMS is not available at this time.</p></li>
+						</ul>
+						
+	            	</div>
+
+
+     </template>

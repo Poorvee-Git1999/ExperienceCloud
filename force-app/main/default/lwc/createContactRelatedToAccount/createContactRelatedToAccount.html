@@ -1,0 +1,44 @@
+<template>
+	<!--<lightning-card variant="Narrow" title="Create contact related to account" icon-name="standard:account">-->
+        <lightning-button variant="base" label="Create Contact" title="Create Contact"
+								onclick={openModal}></lightning-button>
+		<template if:true={showModal}>
+			<section role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open slds-modal_large">
+				<div class="slds-modal__container">
+
+					<header class="slds-modal__header">
+
+						<h2 class="slds-text-heading_medium">Create Contact</h2>
+
+					</header>
+
+					<div class="slds-modal__content slds-p-around_medium">
+
+						<!-- Modal content goes here -->
+
+						<div class="slds-m-around_medium">
+							<lightning-input type="text" variant="standard" name="name" label="Name"
+								onchange={handleChange} placeholder="type here..."></lightning-input>
+							<!--<lightning-input variant="standard" name="Industry" label="Industry"
+								onchange={handleChangeEvent} placeholder="type here..."></lightning-input> -->
+							<lightning-input name="id" disabled value={accountId} label="id" placeholder="type here...">
+							</lightning-input>
+							<!-- <lightning-button variant="base" label="Create Contact" title="Create Contact"
+								onclick={openModal}></lightning-button> -->
+						</div>
+
+					</div>
+
+					<footer class="slds-modal__footer">
+
+						<lightning-button label="Cancel" onclick={closeModal}></lightning-button>
+
+						<lightning-button label="Save" onclick={onCreateRecord}></lightning-button>
+
+					</footer>
+
+				</div>
+			</section>
+		</template>
+	
+</template>

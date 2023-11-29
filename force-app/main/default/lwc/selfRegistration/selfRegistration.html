@@ -1,0 +1,69 @@
+<template>
+    <template if:true={opentemplate}>
+    <lightning-card  variant="Narrow"  title="Hello" icon-name="standard:account">
+        <div class="slds-text-align_center" >
+        <div class="slds-text-heading_large">
+       <p> Join the Journey</p>
+        </div>
+        </div>
+ <div class="slds-align_absolute-center" >
+     <p> We invite you to join the journey.<br>Upon signup, you will have immediate access<br> to our introductory offering.
+         Participation<br> in this offering gurantees access to<br> the future allocation.</p>
+
+     </div>
+
+<div class="center-container " >
+<div class="half-size "  >
+
+<lightning-input type="text"   variant="standard"  label="First Name" onchange={handleFirstName} required></lightning-input>
+<lightning-input  type="text"  class="validate" variant="standard"  label="LastName" onchange={handleLastName}  required></lightning-input>
+<lightning-input type="email" variant="standard"  label="Email Addresss" onchange={handleEmailAddresss}  required></lightning-input>
+<lightning-input type="email"  variant="standard"  label="Confirm Email Address" onchange={handleConfirmEmailAddress}  required></lightning-input>
+ <p class="error-message" if:true={showErrorMessage}>{errorMessage}</p>
+<lightning-input type="password" class="validate" variant="standard"  label="Password" onchange={handlePassword}  required></lightning-input>
+<lightning-input type="password"  class="validate" variant="standard"  label="Confirm Password" onchange={handleConfirmPassword}  required></lightning-input>
+ <!-- <p class="error-message" if:true={showErrorMessage}>{errorMessage}</p> -->
+
+
+</div>
+                 
+</div>
+    <!-- <lightning-radio-group name="radioGroup"
+            label="Radio Group"
+            options={options}
+            value={value}
+            type="radio"
+            onchange={handleRadioChange}>
+ 
+            </lightning-radio-group> -->
+
+ 
+<lightning-button variant="brand" label="Continue" onclick={handleContinueClick}></lightning-button>
+  </lightning-card>
+    </template>
+    <template if:true={isValid}>
+ <lightning-card title="second page"> 
+    <div class="center-container " > 
+     <div class="half-size " >
+<lightning-input type="date" variant="standard"  label="Date of Birth" onchange={handleBirthdate}  required></lightning-input>
+<lightning-input type="Number" variant="standard"  label="Phone(Mobile)" onchange={handlePhone}  required></lightning-input>
+<lightning-input type="checkbox" label="Opt in for text notification" checked={isChecked} onchange={handleChange}></lightning-input>
+
+<lightning-input type="Number" variant="standard"  label="Zip Code/Postal code" onchange={handleZipCode}></lightning-input>
+
+<!-- <lightning-input type="" variant="standard"  label="First Name" onchange={handleFirstName}></lightning-input> -->
+
+    <lightning-combobox
+        name="country"
+        label="Country"
+        value={selectedCountry}
+        options={countryOptions}
+        onchange={handleCountryChange}
+    ></lightning-combobox>
+
+<lightning-button variant="brand" label="login" onclick={handleClick}></lightning-button>
+     </div>
+     </div>
+    </lightning-card>
+</template>
+</template>
