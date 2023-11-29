@@ -1,5 +1,15 @@
 public with sharing class wrapperClass {
 
+    @AuraEnabled
+    public static List<wrapperClassDemo> fetchAccountRelatedContact(){
+        List<wrapperClassDemo> accountwrapperLst=new List<wrapperClassDemo>();
+        List<Account> lst=[select id , Name ,(select id,firstName,lastName from contacts) from Account limit 5];
+     for(Account acc :lst)
+     {
+        accountwrapperLst.add(new wrapperClassDemo(acc,acc.contacts) );
+     }
+     return accountwrapperLst;
+    }
 
 
 
