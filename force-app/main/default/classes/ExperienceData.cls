@@ -7,7 +7,8 @@ public with sharing class ExperienceData{
       public static List<ExperienceDataWrapper> fetch() {
           Set<Id> experienceSetId = new Set<Id>();
           List<ExperienceDataWrapper> result = new List<ExperienceDataWrapper>();
-    
+          Map<Id, Experience__c> experienceMap = new Map<Id, Experience__c>();
+
           List<Experience__c> experienceList = new List<Experience__c>([
               SELECT Id, Is_Featured__c, Sub_Title__c, Type__c, 
                   Location__r.Country__c, Location__r.City__c, Location__r.State__c, 
@@ -20,6 +21,10 @@ public with sharing class ExperienceData{
     
           for (Experience__c experience : experienceList) {
               experienceSetId.add(experience.id);  
+              system.debug('experienceSetId-->' + experienceSetId);
+              experienceMap.put(experience.id,experience);
+              system.debug('value in map is -->' +experienceMap);
+
           }
     
           List<ContentDocumentLink> documentLinks = new List<ContentDocumentLink>([
@@ -38,8 +43,13 @@ public with sharing class ExperienceData{
                   base64Data = 'data:image/' + documentLink.ContentDocument.FileExtension + ';charset=utf-8;base64, ';
                   base64Data += EncodingUtil.base64Encode(documentLink.ContentDocument.LatestPublishedVersion.VersionData);
               }
-    
-              result.add(new ExperienceDataWrapper(base64Data, experienceList[0]));
+              //LinkedEntityIds.add(documentLink.LinkedEntityId);
+              Experience__c experience = experienceMap.get(documentLink.LinkedEntityId);
+             if(experience != null)
+             {
+              result.add(new ExperienceDataWrapper(base64Data, experience));
+              system.debug('result-->' + result);
+             }
           }
     
           
