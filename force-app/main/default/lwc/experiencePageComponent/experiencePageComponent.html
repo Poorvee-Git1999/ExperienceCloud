@@ -2,4 +2,11 @@
 <div class="imageClass">
  <img align="right"  src={companyLogoUrl}>
 </div>
+<div if:true={experienceData}>
+    <template for:each={experienceData} for:item="exp">
+        <p key={exp.experience.Id}>{exp.experience.Name}</p>
+        <img key={exp.experience.Id} src={exp.base64Data} alt={exp.experience.Name} />
+    </template>
+</div>
+
 </template>
