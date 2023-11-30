@@ -10,6 +10,7 @@ export default class ExperiencePageComponent extends LightningElement {
     wiredExperienceData({ error, data }) {
         if (data) {
             this.experienceData = data;
+            console.log('the data is ' ,this.experienceData)
         } else if (error) {
             console.error('Error fetching experience data', error);
         }
