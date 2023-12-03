@@ -1,0 +1,12 @@
+.myClass1{
+   
+    background-color: blueviolet;
+    font-size: 20px;
+    text-align: left;
+    text-decoration: dotted;
+    text-decoration-color: crimson;
+    height: 100px;
+    padding-top: 20px;
+    padding-left: 30px;
+    margin: 20px;
+}
