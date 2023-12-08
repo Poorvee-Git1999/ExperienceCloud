@@ -186,17 +186,17 @@ public class newSelfRegistrationController {
 
  Integer minRange = 1000;
 Integer maxRange = 9999;
-
+string usernames;
 Integer randomNum = (Integer)(Math.random() * (maxRange - minRange + 1)) + minRange;
 
 System.debug('Random 4-digit number: ' + randomNum);
 
                
-
+            usernames=emailId+randomNum;
              User newUser = new User();
 
              newUser.Username =emailId+randomNum;
-
+             
              newUser.Email =emailId;
 
              newUser.FirstName = firstName;
@@ -208,8 +208,9 @@ System.debug('Random 4-digit number: ' + randomNum);
              newUser.CommunityNickname = firstName.substring(0, 1)+lastName.substring(0, 4)+ randomNum;
 
              //newUser.LocaleSidKey = 'en_US';
-
-             //newUser.ProfileId = profileName.Id;
+            //Profile usrProfileId = [SELECT Id From Profile WHERE Name =: 'Customer Community Plus User Custom' LIMIT 1];
+            //System.debug('usrProfileId'+usrProfileId);
+             //newUser.ProfileId = usrProfileId.Id;
 
              //newUser.TimeZoneSidKey = 'America/New_York';
 
@@ -220,7 +221,7 @@ System.debug('Random 4-digit number: ' + randomNum);
             String UserId= Site.createExternalUser(newUser,objAcc.Id,password);    
             system.debug('the value of site user ' +UserId);
             if (userId != null) {
-                
+              newSelfRegistrationController.doLogin(usernames,password);
               newSelfRegistrationController.mailer(emailId);
                system.debug('the user is not null'); 
             /*if (password != null && password.length() > 1) {
@@ -254,5 +255,32 @@ System.debug('Random 4-digit number: ' + randomNum);
             throw new AuraHandledException(e.getMessage());
         }
         }
+    @AuraEnabled
+    public static string doLogin(String username, String password) {
+        try {
+            system.debug('the username is ' + username);
+            system.debug('the username is ' + password);
 
+            //String startUrl = System.currentPageReference().getParameters().get('startURL');
+            //system.debug('the url is ' + startUrl);
+            
+            // Check if username and password are not null before proceeding
+            if(String.isNotBlank(username) && String.isNotBlank(password)) {
+                system.debug('inside the username and password');
+                ApexPages.PageReference pageRef = Site.login(username, password, 'https://d5i00000dwxgfeal-dev-ed.develop.my.site.com/ExperienceCloud/s/welcomepage');
+                if (pageRef != null) {
+                    system.debug('the pageRef is '); 
+                   // system.debug('the pageRef url is ' + pageRef.getUrl()); 
+                    return pageRef.getUrl();
+                } else {
+                    throw new CalloutException('Login failed. Invalid credentials or other issue.');
+                }
+            } else {
+                throw new CalloutException('Username and/or password are empty.');
+            }
+        } catch (Exception e) {
+            system.debug('Exception in doLogin: ' + e.getMessage());
+            throw new AuraHandledException('An error occurred during login.');
+        }
+    }
 }
