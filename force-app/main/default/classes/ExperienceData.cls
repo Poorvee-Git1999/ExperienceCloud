@@ -10,15 +10,13 @@ public with sharing class ExperienceData{
           Set<Id> experienceSetId = new Set<Id>();
           List<ExperienceDataWrapper> result = new List<ExperienceDataWrapper>();
           Map<Id, Experience__c> experienceMap = new Map<Id, Experience__c>();
-          List<Experience__c> experienceList = new List<Experience__c>([SELECT Id, Is_Featured__c,Is_Active__c,Guest_Limit_Per_Person__c,Sub_Title__c, 
-          Type__c,Location__r.Country__c,Location__r.City__c, 
-          Location__r.State__c,Experience_Start_Date__c,Price_Per_Person__c,
-          Realmx_Description__c,Reservation_End_Date__c,Reservation_Start_Date__c, 
-          Name,Experience_End_Date__c,Event_Duration__c
-          FROM Experience__c 
-          WHERE ((Is_Featured__c = true OR Is_Active__c = true) AND (Reservation_Start_Date__c <= :todayDate AND Reservation_End_Date__c >= :todayDate))
-          ORDER BY Experience_Start_Date__c DESC LIMIT 5]);
-
+          List<Experience__c> experienceList = new List<Experience__c>([
+            SELECT Id, Is_Featured__c, Sub_Title__c, 
+                Location__r.Country__c, Location__r.City__c, Location__r.State__c, 
+                Experience_Start_Date__c, Name 
+            FROM Experience__c 
+            WHERE Is_Featured__c = true
+        ]);
           
     
           system.debug('experienceList-->' + experienceList);

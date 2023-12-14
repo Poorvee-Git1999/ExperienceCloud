@@ -4,8 +4,6 @@
 </div>
 <div if:true={experienceData}>
     <template for:each={experienceData} for:item="exp">
-        <p key={exp.experience.Type__c}>{exp.experience.Type__c}</p>
-
         <p key={exp.experience.Id}>{exp.experience.Name}</p>
         <p key={exp.experience.Sub_Title__c}>{exp.experience.Sub_Title__c}</p>
 
