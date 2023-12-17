@@ -2,6 +2,7 @@ public with sharing class FutureMethodHandlerExample1 {
     public static void FutureMethodExample1(List<User> newList) {
      Profile salesProfile= [Select Id,Name from Profile where Name ='Custom: Sales Profile' LIMIT 1 ];
     List<PermissionSetAssignment> permissionSetList = new List<PermissionSetAssignment>();
+    PermissionSet permissionSets  = [SELECT Id FROM PermissionSet WHERE Name = 'Sales User Permissions' LIMIT 1];
 
     System.debug('lst of profile' +salesProfile);
     set<Id> userprofileid= new set<id>();
@@ -9,13 +10,13 @@ public with sharing class FutureMethodHandlerExample1 {
     for(User objUser :newList)
     {
         system.debug('lst of user' +newList);
-        
-        
+        if(objUser.ProfileId == salesProfile.id)
+        {
         userid.add(objUser.id);
         system.debug('set of userid' +userid);
-
+        }
     }
-    List<PermissionSetAssignment> lstcurrentUserPerSet = new List<PermissionSetAssignment>() ;
+    List<PermissionSetAssignment> lstcurrentUserPerSet = new List<PermissionSetAssignment>();
     system.debug('##lstcurrentUserPerSet' + lstcurrentUserPerSet);
      for(ID User:userid)
      {
@@ -23,7 +24,7 @@ public with sharing class FutureMethodHandlerExample1 {
         {
             PermissionSetAssignment obj=new PermissionSetAssignment();
             obj.AssigneeId=User;
-            obj.PermissionSetId=salesProfile.id;
+            obj.PermissionSetId=permissionSets.id;
             lstcurrentUserPerSet.add(obj);
         }
      }
