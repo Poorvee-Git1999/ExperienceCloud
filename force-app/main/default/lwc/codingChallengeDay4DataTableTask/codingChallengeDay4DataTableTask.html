@@ -1,0 +1,16 @@
+<template>
+    <lightning-card title ="Account Data Table">
+        <lightning-datatable
+                    key-field="id"
+                    data={result}
+                    columns={columns}
+                    hide-checkbox-column="true"
+                    show-row-number-column="true"
+                    onrowaction={handleRowAction}
+                    sorted-by={sortBy}
+                    sorted-direction={sortDirection}
+                    onsort ={sortHandler}
+                >
+                </lightning-datatable>
+    </lightning-card>
+</template>
